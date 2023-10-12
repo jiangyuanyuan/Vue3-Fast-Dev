@@ -1,17 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <van-config-provider :theme-vars="themeVars">
+    <router-view />
+  </van-config-provider>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+    const themeVars = {
+      buttonPrimaryBorderColor: '#CE1528',
+      buttonPrimaryBackgroundColor: '#CE1528',
+    };
 </script>
 
 <style>
