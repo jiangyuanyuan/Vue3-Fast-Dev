@@ -1,14 +1,13 @@
 
 import axios from "axios";
 import store from "@/utils/store";
-import { Toast } from 'vant';
+// import { Toast } from 'vant';
 import 'vant/es/toast/style';
 // import VuexStore from "../store/index";
 
 // 默认配置
 const defaultConfig = {
   baseURL: process.env.VUE_APP_API_BASE_URL,
-  // baseURL: 'https://smart-cooker-qa.geebento.com/',
   headers: {},
   timeout: 120000,
 };
@@ -39,7 +38,7 @@ axios.interceptors.response.use(
       return (window.location.href = `http://${host}/index.html#/login?redirect=${encodeURIComponent(href)}`);
     } else {
       console.log('error', msg)
-      Toast.fail(msg || data.message);
+      // Toast.fail(msg || data.message);
       return Promise.reject(response.data);
     }
   },

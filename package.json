@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --mode dev",
+    "serve:prod": "vue-cli-service serve --mode prod",
     "build": "vue-cli-service build",
+    "build:prod": "vue-cli-service build --mode prod",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -12,8 +14,9 @@
     "axios": "^1.5.1",
     "core-js": "^3.8.3",
     "pinia": "^2.1.6",
+    "unplugin-vue-components": "^0.25.2",
     "vant": "^4.7.1",
-    "vue": "^3.2.13",
+    "vue": "^3.2.36",
     "vue-i18n": "^9.5.0",
     "vue-router": "^4.2.5"
   },
