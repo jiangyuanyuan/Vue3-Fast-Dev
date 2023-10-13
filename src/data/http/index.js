@@ -1,9 +1,8 @@
 
 import axios from "axios";
-import store from "@/utils/store";
 // import { Toast } from 'vant';
 import 'vant/es/toast/style';
-// import VuexStore from "../store/index";
+import {userStore} from '@/data/store/userStore'
 
 // 默认配置
 const defaultConfig = {
@@ -48,8 +47,9 @@ axios.interceptors.response.use(
 );
 
 function addToken(headers) {
-  const token = store.local.get("tally_token");
-  // const lang = VuexStore.getters.getLang || 'zh-CN'
+  const store= userStore()
+  const token = store.token
+  console.log("token:"+token)
   const lang = 'zh-CN'
   if (!token) return headers;
   return {

@@ -13,24 +13,27 @@
 import { getCurrentInstance } from "vue";
 import { login } from '@/data/api/user.js'
 import { ref } from 'vue'
-import store from "@/utils/store";
 import {useRouter} from 'vue-router'
+import { userStore } from "@/data/store/userStore"
 const { $t } = getCurrentInstance().proxy;
 const $router = useRouter()
+const store = userStore()
 
 const username = ref('');
 const password = ref('');
 
 
 const toLogin = async () => {
-    const data = await login({
+    const parms = {
         account: username.value,
         password: password.value
-    })
-    store.local.set('tally_token', data.authorization)
-    store.local.set('tally_name', data.name)
-    $router.push({ path:'/home'})
+    }
+    console.log(parms)
+    const { data } = await login(parms)
     console.log(data)
+    store.setToken(data.authorization)
+    $router.push({ path:'/home'})
+
 
 }
 
