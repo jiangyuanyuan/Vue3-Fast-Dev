@@ -9,10 +9,19 @@ yarn install
 ```
 yarn serve
 ```
+or
+```
+yarn serve:prod
+```
+
 
 ### Compiles and minifies for production
 ```
 yarn build
+```
+or
+```
+yarn build:prod
 ```
 
 ### Lints and fixes files
